@@ -1,0 +1,11 @@
+@startuml
+!include <azure/AzureCommon>
+!include <azure/Compute/AzureVirtualMachine>
+
+left to right direction
+
+actor User as user
+AzureVirtualMachine(visconVM, "VIScon Web Server", "App Server")
+
+user --> visconVM
+@enduml
