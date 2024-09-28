@@ -1,11 +1,16 @@
 @startuml
 !include <azure/AzureCommon>
 !include <azure/Compute/AzureVirtualMachine>
+!include <azure/Networking/AzureLoadBalancer>
 
 left to right direction
 
 actor User as user
-AzureVirtualMachine(visconVM, "VIScon Web Server", "App Server")
+AzureLoadBalancer(visconLB, "VIScon Load Balancer", "Load Balancer")
+AzureVirtualMachine(visconVM1, "VIScon Web Server 1", "App Server")
+AzureVirtualMachine(visconVM2, "VIScon Web Server 2", "App Server")
 
-user --> visconVM
+user --> visconLB
+visconLB --> visconVM1
+visconLB --> visconVM2
 @enduml
